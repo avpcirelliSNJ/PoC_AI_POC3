@@ -104,7 +104,8 @@ The agent isn't allowed to just "guess." It must use a tool (like a Python searc
 Until now, your agents have only used their internal training data. A **Tool-User agent** can interact with the outside world: it can read a local file, check the weather, query a database, or perform a calculation.
 Since you are using **Ollama/Docker** with limited means, we will implement a "Manual Tool Loop." This is exactly how sophisticated frameworks like LangChain work under the hood.
 
-In this pattern, the Agent doesn't just answer. It follows a loop:
+
+In this pattern, the Agent doesn't just answer. For example, it follows a loop:
 1.  **Thought:** "I need to know the price of Bitcoin, but I don't know it."
 2.  **Action:** "I will call the `get_crypto_price` tool."
 3.  **Observation:** The Python script runs a real function and gives the result back to the AI.
@@ -112,8 +113,10 @@ In this pattern, the Agent doesn't just answer. It follows a loop:
 
 We will give your agent a **Tool** that allows it to "read" a specific text file on your computer. This is the foundation of **RAG (Retrieval Augmented Generation)**.
 
+
 Let's create a sample file first:
 Create a file named `knowledge.txt` and write: _"The secret code for PoC 3 is: ALPHA-99."_
+ The logic in the code 'Orchestrator_Pattern03.py' gives the agent the power to decide how the search should be conducted.
 
 ### Results
 This pattern  demonstrates that you can bridge the gap between **Static LLMs** and **Dynamic Data**.
